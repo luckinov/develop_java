@@ -8,7 +8,7 @@ public class mid {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 matrix[i][j] = scanner.nextInt();
-                
+                //get n*n matrix
             }
         }
 
