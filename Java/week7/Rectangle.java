@@ -4,14 +4,14 @@ public class Rectangle {
     double length;
     double width;
 
-    public Rectangle() {//前面加public不影响
+    public Rectangle() {//前面加public其他文件夹中加上 import week7.*; 就可以用调用的时候前面写week7.
         width = 1;
         length = 1;
     }
 
-    public Rectangle(double l, double w) {
-        width = w;
-        length = l;
+    public Rectangle(double length, double width) {
+        this.width = width;
+        this.length = length;
         
     }
     public double getLength(){
