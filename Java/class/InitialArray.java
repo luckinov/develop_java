@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class InitialArray {
     public static void max(double[] num) {
