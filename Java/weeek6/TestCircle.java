@@ -3,9 +3,31 @@ package weeek6;
 
 
 public class TestCircle {
+    public static void printCircle(Circle c) {
+        System.out.println("radius is " + c.getRadius() + " area is " + c.getArea());
+    }
+
+    public static Circle[] creatCA() {
+        Circle[] ca = new Circle[5];
+
+        for (int i = 0; i < 5; i++) {
+            ca[i] = new Circle(i);
+        }
+        return ca;
+    }
+    
+    public static void printCircleArray(Circle[] ca) {
+        int n = ca.length;
+        for (int i = 0; i < n; i++) {
+            System.out.println("the area is " + ca[i].getArea());
+        }
+    }
+
     public static void main(String[] args) {
         // 创建默认半径为1的圆
-        Circle c1 = new Circle();
+        
+        
+        Circle c1 = new Circle(1);
 
         // 创建半径为5的圆
         Circle c2 = new Circle(5);
@@ -15,8 +37,8 @@ public class TestCircle {
 
         // 修改圆的半径
         c2.setRadius(10);
-        System.out.println(area);
-        System.out.println(c1.radius);
-        
+        printCircle(c2);
+        printCircleArray(creatCA());
+
     }
 }
