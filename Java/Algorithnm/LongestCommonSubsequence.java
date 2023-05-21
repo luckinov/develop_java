@@ -5,14 +5,14 @@ public class LongestCommonSubsequence {
         int m = s1.length();
         int n = s2.length();
 
-        int[][] L = new int[m + 1][n + 1];
+        int[][] dp = new int[m + 1][n + 1];
 
         // 初始化第一行和第一列为0
         for (int i = 0; i <= m; i++) {
-            L[i][0] = 0;
+            dp[i][0] = 0;
         }
         for (int j = 0; j <= n; j++) {
-            L[0][j] = 0;
+            dp[0][j] = 0;
         }
 
         // 动态规划计算最长子序列长度
@@ -20,12 +20,18 @@ public class LongestCommonSubsequence {
             for (int j = 1; j <= n; j++) {
                 if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
                     // 当前字符相等，最长子序列长度加1
-                    L[i][j] = L[i - 1][j - 1] + 1;
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
                     // 当前字符不相等，取左边或上边最长子序列长度的较大值
-                    L[i][j] = Math.max(L[i - 1][j], L[i][j - 1]);
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
                 }
             }
+        }
+        for (int i = 0; i < m + 1; i++) {
+            for (int j = 0; j < n + 1; j++) {
+                System.out.print(dp[i][j] + "\t");
+            }
+            System.out.println();
         }
 
         // 根据dp数组回溯，构造最长子序列
@@ -39,18 +45,13 @@ public class LongestCommonSubsequence {
                 j--;
             } else {
                 // 当前字符不相等，根据dp数组的大小关系选择移动方向
-                if (L[i - 1][j] > L[i][j - 1]) {
+                if (dp[i - 1][j] > dp[i][j - 1]) {
                     i--;
                 } else {
                     j--;
                 }
             }
-            for (i = 0; i < m+1; i++) {
-                for (j = 0; j < n+1; j++) {
-                    System.out.print(L[i][j] + "\t");
-                }
-                System.out.println();
-            }
+            
         }
 
         return sb.toString();
@@ -61,7 +62,5 @@ public class LongestCommonSubsequence {
         String s2 = "longest";
         String longest = longestCommonSubsequence(s1, s2);
         System.out.println("Longest Common Subsequence: " + longest);
-        System.out.println("L数组：");
-        
     }
 }
