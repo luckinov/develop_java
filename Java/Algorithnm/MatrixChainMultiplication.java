@@ -1,5 +1,6 @@
 package Algorithnm;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class MatrixChainMultiplication {
         String[][] parenthesis = new String[n][n];
 
         // 初始化对角线元素
-        for (int i = 1; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             dp[i][i] = 0;
         }
 
@@ -45,19 +46,31 @@ public class MatrixChainMultiplication {
         System.out.println("矩阵相乘的方式：");
         System.out.println(parenthesis[1][n - 1]);
 
-        getMatrixOrder(parenthesis, 1, n - 1, order);
+        order.addAll(getMatrixOrder(parenthesis, 1, n - 1));
 
         return dp[1][n - 1]; // 返回最终结果
     }
 
-    public static void getMatrixOrder(String[][] parenthesis, int i, int j, List<String> order) {
-        if (i == j) {
+    public static List<String> getMatrixOrder(String[][] parenthesis, int i, int j) {
+        List<String> order = new ArrayList<>();
+        if (parenthesis[i][j] == null) {
             order.add("A" + i);
         } else {
-            String p = parenthesis[i][j];
-            int k = Integer.parseInt(p.substring(1, p.length() - 1));
-            getMatrixOrder(parenthesis, i, k, order);
-            getMatrixOrder(parenthesis, k + 1, j, order);
+            getMatrixOrderHelper(parenthesis, i, j, order);
+        }
+        return order;
+    }
+
+    private static void getMatrixOrderHelper(String[][] parenthesis, int i, int j, List<String> order) {
+        if (parenthesis[i][j].startsWith("(")) {
+            String[] indices = parenthesis[i][j].substring(1, parenthesis[i][j].length() - 1).split("\\)\\(");
+            for (String index : indices) {
+                int k = Integer.parseInt(index);
+                getMatrixOrderHelper(parenthesis, i, k, order);
+                getMatrixOrderHelper(parenthesis, k + 1, j, order);
+            }
+        } else {
+            order.add(parenthesis[i][j]);
         }
     }
 
