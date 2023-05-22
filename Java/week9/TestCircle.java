@@ -38,6 +38,7 @@ public class TestCircle {
         // 修改圆的半径
         c2.setRadius(10);
         printCircle(c1);
+        System.out.println(c1.toString());
         //printCircleArray(creatCA());
 
     }
