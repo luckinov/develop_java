@@ -1,18 +1,27 @@
 package Algorithnm;
 
+
+
 public class MatrixChainMultiply {
     private static int[][] rec;
 
     public static void main(String[] args) {
-        int[] p = { 2, 3, 7, 9, 5, 2, 4 };
+        int[] p = { 3,2,4,2,5};
+        int n = p.length - 1;
         rec = new int[p.length][p.length];
         int result = matrixChainMultiply(p);
         System.out.println("一共计算了" + result + "次");
         printMatrixChain(1, p.length - 1);
+        System.out.println();
+        System.out.println("rec表:");
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 1; j < n + 1; j++) {
+                System.out.print(rec[i][j] + "\t");
+            }
+            System.out.println();
+        }
         
     }
-    
-
     private static int matrixChainMultiply(int[] p) {
         int n = p.length - 1;
         int[][] D = new int[n + 1][n + 1];
@@ -31,7 +40,7 @@ public class MatrixChainMultiply {
                 }
             }
         }
-        System.out.println("dp数组：");
+        System.out.println("dp数组:");
         for (int i = 1; i < n+1; i++) {
             for (int j = 1; j < n+1; j++) {
                 System.out.print(D[i][j] + "\t");
