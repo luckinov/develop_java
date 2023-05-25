@@ -1,7 +1,5 @@
 package Algorithnm;
 
-
-
 public class MatrixChainMultiply {
     private static int[][] rec;
 
