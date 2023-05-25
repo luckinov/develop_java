@@ -69,7 +69,7 @@ public class MatrixChainMultiplication {
                 getMatrixOrderHelper(parenthesis, i, k, order);
                 getMatrixOrderHelper(parenthesis, k + 1, j, order);
             }
-        } else {
+        } else {//
             order.add(parenthesis[i][j]);
         }
     }
