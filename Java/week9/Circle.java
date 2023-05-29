@@ -4,17 +4,17 @@ public class Circle extends GeometricObject {
     private double radius;
     private static int numberOfObjects;
 //default
-    Circle() {
+    public Circle() {
 
         numberOfObjects++;
     }
 
-    Circle(double newRadius) {
+    public Circle(double newRadius) {
         radius = newRadius;
         numberOfObjects++;
     }
 
-    Circle(double newRadius, String color, boolean filled) {
+    public Circle(double newRadius, String color, boolean filled) {
         radius = newRadius;
         setColor(color);
         setFilled(filled);
@@ -25,19 +25,20 @@ public class Circle extends GeometricObject {
         return radius;
     }
 
-    double getArea() {
+    public double getArea() {
         return radius * Math.PI * radius;
     }
     
-    void setRadius(double newRadius) {
+    public void setRadius(double newRadius) {
         radius = newRadius;
     }
 
     public static int getNumberOfObjects() {
         return numberOfObjects;
     }
-   @Override
+
+  @Override
    public String toString() {
-       return super.toString() + "\n radius : " + radius;
+       return super.toString() + "\nradius : " + radius;
     }
 }
