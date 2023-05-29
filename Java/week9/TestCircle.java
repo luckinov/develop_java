@@ -24,10 +24,8 @@ public class TestCircle {
     }
 
     public static void main(String[] args) {
-        // 创建默认半径为1的圆
-        
-        
-        Circle c1 = new Circle(1,"black",true);
+  
+        Circle c1 = new Circle(1, "black", true);
 
         // 创建半径为5的圆
         Circle c2 = new Circle(5);
@@ -36,10 +34,23 @@ public class TestCircle {
         double area = c2.getArea();
 
         // 修改圆的半径
-        c2.setRadius(10);
-        printCircle(c1);
-        System.out.println(c1.toString());
+        //c2.setRadius(10);
+        //printCircle(c1);
+        //System.out.println(c1.toString());
         //printCircleArray(creatCA());
+        displayObject(new Circle(1, "white", false));
+        //displayCircle(new Circle(1, "red", true));
+        
+    }
+    //polynophism
+    public static void displayObject(GeometricObject object) {
+        System.out.println(object.getColor());
+        
+    }
+    
+    public static void displayCircle(Circle circle) {
+        System.out.println(circle.getArea());
 
     }
+    
 }

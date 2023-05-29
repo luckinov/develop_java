@@ -3,7 +3,7 @@ package week9;
 public class Circle extends GeometricObject {
     private double radius;
     private static int numberOfObjects;
-
+//default
     Circle() {
 
         numberOfObjects++;
@@ -33,7 +33,11 @@ public class Circle extends GeometricObject {
         radius = newRadius;
     }
 
-   public static int getNumberOfObjects() {
-       return numberOfObjects;
-   }
+    public static int getNumberOfObjects() {
+        return numberOfObjects;
+    }
+   @Override
+   public String toString() {
+       return super.toString() + "\n radius : " + radius;
+    }
 }
