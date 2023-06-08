@@ -5,5 +5,6 @@ public class test {
         week7.Rectangle r1 = new Rectangle();
          double area = r1.getArea();
          System.out.println(area);
+         TestCircle.printCircle(new Circle(5));
     }
 }
