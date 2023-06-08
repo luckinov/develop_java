@@ -48,8 +48,8 @@ public static void main(String[] args) {
     // max(num);
     double[] result = ReturnArray(num);
     System.out.println("the result is ");
-    for (double e : result)
-        System.out.printf("%.2f ", e);
+    for (double  i: result)
+        System.out.printf("%.2f ", i);
 }
 
 public static double[] ReturnArray(double[] num) {
